@@ -12,4 +12,4 @@ server.setConfig((app) => {
 
 const serverInstance = server.build();
 serverInstance.listen(process.env.PORT);
-console.log(`Server started on port ${process.env.PORT} :)`);
+console.log(`Server started on port ${process.env.PORT}`);
