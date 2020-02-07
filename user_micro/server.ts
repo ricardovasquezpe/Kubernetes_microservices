@@ -1,8 +1,15 @@
-import app from './app/app';
-import * as http from 'http';
-const config = require('./config/config');
-console.log(config.app);
+import server from './app/app';
+import bodyParser = require('body-parser');
+import "./app/user/user.controller";
+import "reflect-metadata"
 
-http.createServer(app).listen(config.app.port, () => {
-    console.log('Express server listening on port ' + config.app.port);
-})
+server.setConfig((app) => {
+    app.use(bodyParser.urlencoded({
+        extended: true,
+    }));
+    app.use(bodyParser.json());
+});
+
+const serverInstance = server.build();
+serverInstance.listen(process.env.PORT);
+console.log(`Server started on port ${process.env.PORT} :)`);
