@@ -1,10 +1,9 @@
-import { injectable } from "inversify";
-import { Db } from 'mongodb';
 import { MongoDBConnection } from "./connection";
+import { injectable } from "inversify";
 
 @injectable()
 export class MongoDBClient {
-    public db: Db;
+    public db;
 
     constructor() {
       MongoDBConnection.getConnection((connection) => {

@@ -1,6 +1,7 @@
 import { Container } from "inversify";
 import { UserService } from "../user/user.service";
-import { MongoDBClient } from '../utils/mongodb/client';
+//import { MongoDBClient } from '../utils/mongodb/client';
+import { MongoDBClient } from '../utils/mongoose/client';
 import TYPES from "../constants/types";
 
 export class ContainerConfigLoader {

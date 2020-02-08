@@ -1,7 +1,7 @@
 import { Db, MongoClient } from 'mongodb';
 
-const connStr = 'mongodb://localhost:27017';
-const dbName = "inversify-express-example";
+const connStr = 'mongodb+srv://admin:123@cluster0-tmji7.mongodb.net/test?retryWrites=true&w=majority';
+const dbName = "test";
 
 export class MongoDBConnection {
 private static isConnected: boolean = false;
@@ -19,9 +19,9 @@ private static isConnected: boolean = false;
 
   private static connect(result: (error, db: Db) => void) {
     MongoClient.connect(connStr, (err, client) => {
-      this.db = client.db(dbName);
-      this.isConnected = true;
-      return result(err, this.db);
-    });
+        this.db = client.db(dbName);
+        this.isConnected = true;
+        return result(err, this.db);
+      });
   }
 }
