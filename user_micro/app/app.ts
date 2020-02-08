@@ -5,6 +5,7 @@ import * as mongoose from "mongoose";*/
 import { ProcessConfigLoader } from "./config/env";
 import { ContainerConfigLoader } from "./config/container";
 import { InversifyExpressServer } from "inversify-express-utils";
+import "./config/imports";
 
 class App {
 
@@ -35,7 +36,7 @@ class App {
     private configv2(): void {
         ProcessConfigLoader.Load("./config/.env");
         const container = ContainerConfigLoader.Load();
-        this.server = new InversifyExpressServer(container);
+        this.server = new InversifyExpressServer(container, null, { rootPath: "/api/v1" });
     }
 
 }

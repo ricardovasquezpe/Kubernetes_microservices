@@ -1,13 +1,13 @@
 import server from './app/app';
 import bodyParser = require('body-parser');
-import "./app/user/user.controller";
 import "reflect-metadata"
 
 server.setConfig((app) => {
-    app.use(bodyParser.urlencoded({
-        extended: true,
-    }));
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
+    app.get('/', function(req, res) {
+        res.send('hello world');
+      });
 });
 
 const serverInstance = server.build();
