@@ -36,7 +36,7 @@ class App {
     private configv2(): void {
         ProcessConfigLoader.Load("./config/.env");
         const container = ContainerConfigLoader.Load();
-        this.server = new InversifyExpressServer(container, null, { rootPath: "/api/v1" });
+        this.server = new InversifyExpressServer(container);
     }
 
 }

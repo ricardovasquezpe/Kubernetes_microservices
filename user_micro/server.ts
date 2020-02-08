@@ -5,9 +5,6 @@ import "reflect-metadata"
 server.setConfig((app) => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.get('/', function(req, res) {
-        res.send('hello world');
-      });
 });
 
 const serverInstance = server.build();
